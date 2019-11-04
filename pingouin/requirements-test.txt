@@ -1,0 +1,10 @@
+pytest
+codecov
+pytest-cov
+pytest-sugar
+pytest-remotedata
+pytest-travis-fold
+openpyxl
+mpmath
+scikit-learn
+seaborn
