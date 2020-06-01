@@ -798,7 +798,9 @@ def mantel_partial_corr(data=None, x=None, y=None, covar=None, x_covar=None,
             cvar = np.atleast_2d(C[y_covar].values)
             beta_y = np.linalg.lstsq(cvar, C[y].values, rcond=None)[0]
             res_y = C[y].values - np.dot(cvar, beta_y)
-    return skbio.stats.distance.mantel(res_x, res_y, method=method, permutations = 10000 )
+    res_x = squareform(res_x)
+    res_y = squareform(res_y)
+    return skbio.stats.distance.mantel(res_x, res_y, method=method, permutations = 10000, strict=False)
 
 
 @pf.register_dataframe_method
